@@ -1,4 +1,5 @@
-let createLoginTracker = (userInfo) => {
+function createLoginTracker (userInfo) {
+   (userInfo) => {
   let attemptCount = 0;
    return (passwordAttempt) => { 
     attemptCount++;
@@ -18,6 +19,7 @@ let createLoginTracker = (userInfo) => {
 
   }
 };
+}
 
 
 module.exports = {
