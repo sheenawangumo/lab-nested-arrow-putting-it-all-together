@@ -1,9 +1,8 @@
 function createLoginTracker (userInfo) {
-  let attemptCount = 3;
-   attemptCount++;
-    return (userInfo) => {
+    attemptCount++;
    return (passwordAttempt) => { 
-    
+    const loginHandler = passwordAttempt
+    let attemptCount = 0;
      if (attemptCount >= 4) {
       console.log('Login failed. Too many attempts.');
       return 'login failed';
@@ -15,11 +14,11 @@ function createLoginTracker (userInfo) {
     }
      else if (passwordAttempt !== userInfo.password && attemptCount <= 3) {
       console.log('Incorrect password. Try again.');
-      return 'incorrect password'; 
-      attemptCount++;
+      return ('incorrect password' + loginHandler); 
+      ;
     }
 
-  }
+  
 };
 }
 
