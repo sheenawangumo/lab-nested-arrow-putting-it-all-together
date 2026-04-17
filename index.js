@@ -12,7 +12,7 @@ function createLoginTracker (userInfo) {
       attemptCount = 0;
       return 'login successful';
     }
-     else if (passwordAttempt !== userInfo.password && attemptCount < 4) {
+     else if (passwordAttempt !== userInfo.password && attemptCount <= 3) {
       console.log('Incorrect password. Try again.');
       return 'incorrect password';
     }
