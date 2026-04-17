@@ -1,5 +1,5 @@
 function createLoginTracker (userInfo) {
-   (userInfo) => {
+    return (userInfo) => {
   let attemptCount = 0;
    return (passwordAttempt) => { 
     attemptCount++;
