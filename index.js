@@ -1,29 +1,24 @@
-function createLoginTracker(userInfo) {
+let createLoginTracker = (userInfo) => {
   let attemptCount = 0;
-
-  return (passwordAttempt) => {
+   return (passwordAttempt) => { 
     attemptCount++;
-
-    console.log(`[Debug] Current attempt count: ${attemptCount} | Attempted password: "${passwordAttempt}"`);
-
-    if (typeof passwordAttempt !== 'string') {
-        return "Error: Invalid input type. Password must be a string.";
+     if (attemptCount >= 4) {
+      console.log('Login failed. Too many attempts.');
+      return 'login failed';
+    }
+    else if (passwordAttempt === userInfo.password) {
+      console.log('Login successful!');
+      attemptCount = 0;
+      return 'login successful';
+    }
+     else if (passwordAttempt !== userInfo.password && attemptCount < 4) {
+      console.log('Incorrect password. Try again.');
+      return 'incorrect password';
     }
 
-    if (attemptCount > 3) {
-      return "Account locked due to too many failed login attempts";
-    }
+  }
+};
 
-    if (passwordAttempt === userInfo.password) {
-      return "Login successful";
-    } else {
-      return `Login attempt ${attemptCount}: Login failed`;
-    }
-  };
-}
-
-
- 
 
 module.exports = {
   ...(typeof createLoginTracker !== 'undefined' && { createLoginTracker })
