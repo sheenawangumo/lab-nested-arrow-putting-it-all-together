@@ -14,7 +14,8 @@ function createLoginTracker (userInfo) {
     }
      else if (passwordAttempt !== userInfo.password && attemptCount <= 3) {
       console.log('Incorrect password. Try again.');
-      return 'incorrect password';
+      return 'incorrect password'; 
+      attemptCount++;
     }
 
   }
